@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { forwardRef, useContext } from 'react'
 import { ModalContext } from '../contexts/ModalContext/ModalContext'
 
 const ItemHeaderTop = ({ color, active, icon, handleClick }) => {
@@ -38,12 +38,12 @@ const ModalHeader = ({ active, title, id }) => {
     )
 }
 
-const Modal = ({ info, children, id }) => {
+const Modal = ({ info, children, id }, ref) => {
     //
     const { state: { active }, dispatch, actions } = useContext(ModalContext);
     //
     return (
-        <div onClick={() => dispatch(actions.updateData(`active`, id))}
+        <div ref={ref} onClick={() => dispatch(actions.updateData(`active`, id))}
             className='bg-gray-100 absolute rounded-lg'
             style={{ width: info.width }}>
             <ModalHeader active={active === id} title={info.title} id={id} />
@@ -54,4 +54,4 @@ const Modal = ({ info, children, id }) => {
     )
 }
 
-export default Modal
+export default forwardRef(Modal)

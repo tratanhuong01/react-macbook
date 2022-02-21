@@ -17,7 +17,7 @@ export default function LoadingLogin() {
             else {
                 setTime(time => time + 1)
             }
-        }, 100);
+        }, 500);
         return () => {
             clearTimeout(timeOut);
         }

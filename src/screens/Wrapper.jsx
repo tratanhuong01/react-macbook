@@ -14,8 +14,8 @@ const Wrapper = () => {
         const updateLogin = () => {
             dispatch(actions.updateData('data', <Login />));
         }
-        setTimeout(updateLoading, 500);
-        setTimeout(updateLogin, 1000);
+        setTimeout(updateLoading, 2000);
+        setTimeout(updateLogin, 4000);
         return () => {
             clearTimeout(updateLoading);
             clearTimeout(updateLogin);
